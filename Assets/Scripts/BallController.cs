@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
     public Material YellowMaterial;
     public Material BlueMaterial;
 
-    private const float MinScale = 0.1f;
+    private const float MinScale = 0.25f;
     private const float MaxScale = 1.5f;
     private const int MassScaleFactor = 4;
 
@@ -31,11 +31,11 @@ public class BallController : MonoBehaviour
     {
         var ballRenderer = ballCreated.GetComponent<Renderer>();
 
-        if (ballScaleRnd < 0.66)
+        if (ballScaleRnd < 0.88)
         {
             ballRenderer.material = YellowMaterial;
         }
-        else if (ballScaleRnd < 1.11)
+        else if (ballScaleRnd < 1.25)
         {
             ballRenderer.material = RedMaterial;
         }

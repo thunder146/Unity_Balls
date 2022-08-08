@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
     {
         _textBallCount = GameObject.Find("TextBallCount").GetComponent<TextMeshProUGUI>();
 
-        StartCoroutine(AddBalls(-1, -1, new BallConfig()));
+        StartCoroutine(AddBalls(-5, -1, new BallConfig()));
         StartCoroutine(AddBalls(-1, 0, new BallConfig()));
         StartCoroutine(AddBalls(0, -1, new BallConfig()));
-        StartCoroutine(AddBalls(1, 1, new BallConfig()));
+        StartCoroutine(AddBalls(5, 1, new BallConfig()));
 
         //AddBall(0, 0, new BallConfig() { SelfDestroy = false });
     }
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         {
             AddBall(posXOffset, posZOffset, config);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -60,5 +60,5 @@ public class GameManager : MonoBehaviour
 class BallConfig
 {
     public bool SelfDestroy = true;
-    public float SelfDestroySeconds = 10;
+    public float SelfDestroySeconds = 20;
 }

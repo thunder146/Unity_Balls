@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2158.4604, g: 2264.1785, b: 3293.438, a: 1}
+  m_IndirectSpecularColor: {r: 2155.2168, g: 2258.497, b: 3279.205, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -724,9 +724,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallPrefab: {fileID: 5268533859987942602, guid: f6cac78f26fd48542962ff564c65f7f5,
     type: 3}
-  RedMaterial: {fileID: 2100000, guid: 30c77d8a93d1b5c4288419ccf290a511, type: 2}
-  YellowMaterial: {fileID: 2100000, guid: db8c62a9f24a7974ab8a269292056cd4, type: 2}
-  BlueMaterial: {fileID: 2100000, guid: 79ec935be1e415e49973869a3722c6d8, type: 2}
 --- !u!4 &1137039038
 Transform:
   m_ObjectHideFlags: 0
