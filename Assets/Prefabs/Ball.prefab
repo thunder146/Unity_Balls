@@ -127,3 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288437f79d62d6943820396b288e38b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RedMaterial: {fileID: 2100000, guid: 30c77d8a93d1b5c4288419ccf290a511, type: 2}
+  YellowMaterial: {fileID: 2100000, guid: db8c62a9f24a7974ab8a269292056cd4, type: 2}
+  BlueMaterial: {fileID: 2100000, guid: 79ec935be1e415e49973869a3722c6d8, type: 2}
