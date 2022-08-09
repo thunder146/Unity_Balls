@@ -5,47 +5,27 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject BallPrefab;
-
+    
     private TextMeshProUGUI _textBallCount;
+    private int _ballCreationRadius = 4;
+    private int MinBallCreationHeight = 10;
+    private int MaxBallCreationHeight = 35;
 
     void Start()
     {
         _textBallCount = GameObject.Find("TextBallCount").GetComponent<TextMeshProUGUI>();
+        StartAddBalls();
+    }
 
-        const int V = -2;
-        const int V1 = 2;
-
-        for (int i = V; i < V1; i++)
+    private void StartAddBalls()
+    {
+        for (int i = -_ballCreationRadius; i < _ballCreationRadius; i++)
         {
-            for (int j = V; j < 10; j++)
+            for (int j = -_ballCreationRadius; j < _ballCreationRadius; j++)
             {
                 StartCoroutine(AddBalls(i, j, new BallConfig()));
             }
         }
-
-        //StartCoroutine(AddBalls(-10, 10, new BallConfig()));
-        //StartCoroutine(AddBalls(-9, 9, new BallConfig()));
-        //StartCoroutine(AddBalls(-8, 8, new BallConfig()));
-        //StartCoroutine(AddBalls(-7, 7, new BallConfig()));
-        //StartCoroutine(AddBalls(-6, 6, new BallConfig()));
-        //StartCoroutine(AddBalls(-5, 5, new BallConfig()));
-        //StartCoroutine(AddBalls(-4, 4, new BallConfig()));
-        //StartCoroutine(AddBalls(-3, 3, new BallConfig()));
-        //StartCoroutine(AddBalls(-2, 2, new BallConfig()));
-        //StartCoroutine(AddBalls(-1, 1, new BallConfig()));
-        //StartCoroutine(AddBalls(0, 0, new BallConfig()));
-        //StartCoroutine(AddBalls(1, 1, new BallConfig()));
-        //StartCoroutine(AddBalls(2, 2, new BallConfig()));
-        //StartCoroutine(AddBalls(3, 3, new BallConfig()));
-        //StartCoroutine(AddBalls(4, 4, new BallConfig()));
-        //StartCoroutine(AddBalls(5, 5, new BallConfig()));
-        //StartCoroutine(AddBalls(6, 6, new BallConfig()));
-        //StartCoroutine(AddBalls(7, 7, new BallConfig()));
-        //StartCoroutine(AddBalls(8, 8, new BallConfig()));
-        //StartCoroutine(AddBalls(9, 9, new BallConfig()));
-        //StartCoroutine(AddBalls(10, 10, new BallConfig()));
-
-        //AddBall(0, 0, new BallConfig() { SelfDestroy = false });
     }
 
     IEnumerator AddBalls(float posXOffset, float posZOffset, BallConfig config)
@@ -60,9 +40,9 @@ public class GameManager : MonoBehaviour
 
     private void AddBall(float posXOffset, float posZOffset, BallConfig config)
     {
-        var posX = Random.Range(-0.1f, 0.1f) + posXOffset;
-        var posY = 20;
-        var posZ = Random.Range(-0.1f, 0.1f) + posZOffset;
+        var posX = Random.Range(-0.2f, 0.2f) + posXOffset;
+        var posY = Random.Range(MinBallCreationHeight, MaxBallCreationHeight);//20;
+        var posZ = Random.Range(-0.2f, 0.2f) + posZOffset;
 
         var ballCreated = Instantiate(BallPrefab, new Vector3(posX, posY, posZ), Quaternion.identity);
         var controller = ballCreated.GetComponent<BallController>();

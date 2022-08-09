@@ -7,14 +7,16 @@ public class BallController : MonoBehaviour
     public Material YellowMaterial;
     public Material BlueMaterial;
 
-    private const float MinScale = 0.25f;
-    private const float MaxScale = 1.5f;
-    private const int MassScaleFactor = 4;
+    private float _minScale = 0.25f;
+    private float _maxScale = 1.5f;
+    private int _massScaleFactor = 4;
+    private int _minVeloY = 0;
+    private int _maxVeloY = 25;
 
 
     internal void Initialize()
     {
-        var ballScaleRnd = Random.Range(MinScale, MaxScale);
+        var ballScaleRnd = Random.Range(_minScale, _maxScale);
         var ballScaleTransform = new Vector3(ballScaleRnd, ballScaleRnd, ballScaleRnd);
 
         var ballRb = gameObject.gameObject.GetComponent<Rigidbody>();
@@ -28,7 +30,7 @@ public class BallController : MonoBehaviour
     private void SetVelocity(Rigidbody ballRb)
     {
         var veloX = ballRb.velocity.x;
-        var veloY = Random.Range(0, -10);
+        var veloY = Random.Range(_minVeloY, -_maxVeloY);
         var veloZ = ballRb.velocity.z;
 
         ballRb.velocity = new Vector3(veloX, veloY, veloZ);
@@ -57,8 +59,8 @@ public class BallController : MonoBehaviour
         }
     }
 
-    private static void SetMass(float ballScaleRandom, Rigidbody ballRb)
+    private void SetMass(float ballScaleRandom, Rigidbody ballRb)
     {
-        ballRb.mass = ballScaleRandom * MassScaleFactor;
+        ballRb.mass = ballScaleRandom * _massScaleFactor;
     }
 }
