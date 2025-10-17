@@ -29,11 +29,11 @@ public class BallController : MonoBehaviour
 
     private void SetVelocity(Rigidbody ballRb)
     {
-        var veloX = ballRb.velocity.x;
+        var veloX = ballRb.linearVelocity.x;
         var veloY = Random.Range(_minVeloY, -_maxVeloY);
-        var veloZ = ballRb.velocity.z;
+        var veloZ = ballRb.linearVelocity.z;
 
-        ballRb.velocity = new Vector3(veloX, veloY, veloZ);
+        ballRb.linearVelocity = new Vector3(veloX, veloY, veloZ);
     }
 
     private static void SetScale(Vector3 ballScaleTransform, GameObject ballCreated)
